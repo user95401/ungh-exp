@@ -1,6 +1,44 @@
-# 🐙 UNGH-EXP
+# 📃 UNGH-EXP
 
-> Unlimited access to github API with expanded amount of transferred data!
+> Unlimited access to the GitHub API with an expanded amount of transferred data!
+
+Yes, this version of UNGH returns **raw GitHub API responses** — unlike the original UNGH, which strips most of the data.
+
+---
+
+### ⚠️ Warn: The response structure is same as on GitHub API unlike original UNGH!
+
+
+- ### UNGH (original):
+  ```json
+  {
+    "repo": {
+      "id": 313641207,
+      "name": "h3",
+      "repo": "h3js/h3"
+      // ...other fields
+    }
+  }
+  ```
+
+- ### UNGH-EXP (this fork):
+  ```json
+  {
+    "id": 313641207,
+    "node_id": "MDEwOlJlcG9zaXRvcnkzMTM2NDEyMDc=",
+    "name": "h3",
+    "full_name": "h3js/h3",
+    "private": false,
+    "owner": {
+      "login": "h3js",
+      "id": 208435796
+      //...
+    }
+    // ...full raw data
+  }
+  ```
+
+---
 
 > [!IMPORTANT]
 >
@@ -23,11 +61,13 @@ UNGH provides a simplified, cached, and anonymous layer to make GitHub API more 
 
 ## API
 
+> Remind: This fork returns GitHub's native API format.
+
 ### `/repos/{owner}/{name}`
 
 GitHub repository information.
 
-**Example:** https://ungh.cc/repos/unjs/h3
+**Example:** https://ungh-exp.vercel.app/repos/unjs/h3
 
 ```json
 {
@@ -51,7 +91,7 @@ GitHub repository information.
 
 Get repository contributors.
 
-**Example:** https://ungh.cc/repos/unjs/h3/contributors
+**Example:** https://ungh-exp.vercel.app/repos/unjs/h3/contributors
 
 ```json
 {
@@ -74,7 +114,7 @@ Get repository contributors.
 
 Get repository files tree on specific branch.
 
-**Example:** https://ungh.cc/repos/unjs/h3/files/main
+**Example:** https://ungh-exp.vercel.app/repos/unjs/h3/files/main
 
 ```json
 {
@@ -96,7 +136,7 @@ Get repository files tree on specific branch.
 
 Get repository readme file on main branch (not cached)
 
-**Example:** https://ungh.cc/repos/unjs/h3/readme
+**Example:** https://ungh-exp.vercel.app/repos/unjs/h3/readme
 
 ```json
 {
@@ -109,7 +149,7 @@ Get repository readme file on main branch (not cached)
 
 Get repository releases.
 
-**Example:** https://ungh.cc/repos/nuxt/framework/releases
+**Example:** https://ungh-exp.vercel.app/repos/nuxt/framework/releases
 
 ```json
 {
@@ -134,7 +174,7 @@ Get repository releases.
 
 Get latest repository release.
 
-**Example:** https://ungh.cc/repos/nuxt/framework/releases/latest
+**Example:** https://ungh-exp.vercel.app/repos/nuxt/framework/releases/latest
 
 ```json
 {
@@ -157,7 +197,7 @@ Get latest repository release.
 
 Get all the branches of a repository
 
-**Example:** https://ungh.cc/repos/unjs/ungh/branches
+**Example:** https://ungh-exp.vercel.app/repos/unjs/ungh/branches
 
 ```json
 {
@@ -194,7 +234,7 @@ Get all the branches of a repository
 
 GitHub organization information.
 
-**Example:** https://ungh.cc/orgs/unjs
+**Example:** https://ungh-exp.vercel.app/orgs/unjs
 
 ```json
 {
@@ -210,7 +250,7 @@ GitHub organization information.
 
 GitHub organization repositories overview.
 
-**Example:** https://ungh.cc/orgs/unjs/repos
+**Example:** https://ungh-exp.vercel.app/orgs/unjs/repos
 
 ```json
 {
@@ -237,7 +277,7 @@ Get star information for one or more repositories or organizations.
 
 Multiple items can be separated by either `,` or `+` or ` ` (space). Each item can be either `{owner}/{org}` to specify one repository or `{owner}/*` to specify all organization repositories.
 
-**Example:** https://ungh.cc/stars/nuxt/nuxt.js+nuxt/framework
+**Example:** https://ungh-exp.vercel.app/stars/nuxt/nuxt.js+nuxt/framework
 
 ```json
 {
@@ -253,7 +293,7 @@ Multiple items can be separated by either `,` or `+` or ` ` (space). Each item c
 
 Find one github user by username.
 
-**Example:** https://ungh.cc/users/pi0
+**Example:** https://ungh-exp.vercel.app/users/pi0
 
 ```json
 {
@@ -270,7 +310,7 @@ Find one github user by username.
 
 Get user repositories.
 
-**Example:** https://ungh.cc/users/pi0/repos
+**Example:** https://ungh-exp.vercel.app/users/pi0/repos
 
 ```json
 {
@@ -296,7 +336,7 @@ Get user repositories.
 
 Find one github user by email or other query.
 
-**Example:** https://ungh.cc/users/find/pooya@pi0.io
+**Example:** https://ungh-exp.vercel.app/users/find/pooya@pi0.io
 
 ```json
 {
