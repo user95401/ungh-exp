@@ -250,7 +250,12 @@ GitHub organization information.
 
 GitHub organization repositories overview.
 
-**Example:** https://ungh-exp.vercel.app/orgs/unjs/repos
+#### Query Parameters ([pagination by](https://github.com/unjs/ungh/pull/76) [Barbapapazes](https://github.com/Barbapapazes))
+
+* `page` - (optional) The page number to retrieve. Defaults to `1`.
+* `perPage` - (optional) Number of repositories per page. Defaults to `100`, max `100`.
+
+**Example:** https://ungh-exp.vercel.app/orgs/unjs/repos, https://ungh-exp.vercel.app/orgs/unjs/repos?page=2&perPage=6
 
 ```json
 {
