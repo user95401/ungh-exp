@@ -1,6 +1,6 @@
-# 🐙 UNGH
+# 🐙 UNGH-EXP
 
-> Unlimited access to GitHub API
+> Unlimited access to github API with expanded amount of transferred data!
 
 > [!IMPORTANT]
 >
