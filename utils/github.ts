@@ -62,6 +62,7 @@ export const ghRepoFiles = cachedFunction((repo: string, ref: string) => {
 }, cacheOptions("files"));
 
 export const ghMarkdown = cachedFunction(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (markdown: string, repo: string, _id: string) => {
     if (!markdown) {
       return "";
@@ -81,5 +82,33 @@ export const ghMarkdown = cachedFunction(
   {
     ...cacheOptions("markdown"),
     getKey: (_markdown, repo, id) => repo + "/" + id,
+  },
+);
+
+export const ghPagination = cachedFunction(
+  async (url: string, page: number, perPage: number) => {
+    const { _data: data, headers } = await $fetch.raw(url, {
+      baseURL: "https://api.github.com",
+      query: {
+        page,
+        per_page: perPage,
+      },
+      method: "GET",
+      headers: {
+        "User-Agent": "fetch",
+        Authorization: "token " + runtimeConfig.GH_TOKEN,
+      },
+    });
+
+    return {
+      _data: data,
+      headers: {
+        Link: headers.get("Link"),
+      },
+    };
+  },
+  {
+    ...cacheOptions("pagination"),
+    getKey: (path, page, perPage) => `${path}/${page}/${perPage}`,
   },
 );
